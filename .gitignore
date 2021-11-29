@@ -114,7 +114,7 @@ celerybeat.pid
 # venv.bak/
 Dev/.dev_env
 ML/.env
-ML/Dataset/*
+ML/Dataset/*.csv
 
 # Spyder project settings
 .spyderproject
