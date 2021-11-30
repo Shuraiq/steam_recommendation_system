@@ -1,6 +1,10 @@
 ## Steam Game Recommender
 
-The main objective of this application is to recommend games to users.The games suggested to the user is based on the reviews that he has written. The recommended games to a particular user are based on the reviews that have been written for the games. In a nutshell, a user is represented by all the reviews that he has written and a game is represented by all the reviews that have been written. And the recommeded games to a user or to a game are based on how close these vectors of each reviews are.
+- The main objective of this application is to recommend games to users.
+- The games suggested to the user is based on the reviews that he has written. 
+- The recommended games to a particular user are based on the reviews that have been written for the games. 
+
+In a nutshell, a user is represented by all the reviews that he has written and a game is represented by all the reviews that have been written. And the recommeded games to a user or to a game are based on how close these vectors of each reviews are.
 
 The application(website) that we developed where the model we developed is implemented is here: https://steam-recommendations.herokuapp.com/
 
