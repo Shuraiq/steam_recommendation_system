@@ -115,8 +115,7 @@ celerybeat.pid
 # Dev/.dev_env/*
 # ML/env/*
 ML/Dataset/*.csv
-HerokuDev/
-
+HerokuDev/*
 # Spyder project settings
 .spyderproject
 .spyproject
