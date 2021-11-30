@@ -6,7 +6,7 @@
 
 In a nutshell, a user is represented by all the reviews that he has written and a game is represented by all the reviews that have been written. And the recommeded games to a user or to a game are based on how close these vectors of each reviews are.
 
-The application(website) that we developed where the model we developed is implemented is here: https://steam-recommendations.herokuapp.com/
+The application(website) developed where the model we developed is implemented here: https://steam-recommendations.herokuapp.com/
 
 ### Setup
 
@@ -48,6 +48,8 @@ Step 4: Run the cells in the file named "Vector.ipynb", which will train and sav
 Step 5: The files namingly "woring_model","Dict_formation","review_sentiment" in the mentioned order which will develop and save the data needed accordingly.
 
 Step 6: The files with the data will be stored accordingly.
+
+We trained a model by vectorizing the text using Doc2Vec and building a vocabulary. 
  
 ### Building the Frontend
 
