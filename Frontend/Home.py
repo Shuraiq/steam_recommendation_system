@@ -19,13 +19,20 @@ game_names = pd.DataFrame(dict_game_names)
 dict_pre_games = pickle.load(open('dict_games_with_names_and_prevplayed','rb'))
 pre_games = pd.DataFrame(dict_pre_games)
 
+
+review_sent = pickle.load(open('review_sentement','rb'))
+review_sentement = pd.DataFrame(review_sent)
+
+
+
 st.set_page_config(layout="wide")
 first,middle,last = st.columns([1,2,1])
 first.title("Dashboard")
 game_array = np.insert(game_names["name"].values[0:30],0,'<select>',axis=0)
 # st.write(game_array)
 selected_game = middle.selectbox("Games",game_array)
-selected_user = last.selectbox('userIDs',users['steamid'].values[0:30]) 
+# selected_user = last.selectbox('userIDs',users['steamid'].values[0:30]) 
+selected_user = last.selectbox('userIDs',users['steamid'].values[0:30],index=2)
 
 def find_appid(name):
     id = game_names.loc[game_names["name"]==name]
@@ -77,11 +84,38 @@ if(selected_user and selected_game != '<select>'):
     """
     )
 
-    col0,col01 = st.columns(2)
-    with col0:
-        st.image(fetch_image(selected_game),caption=fetch_name(selected_game))
+    col0,col01 = st.columns([1,3.25])
+    with col01:
+        st.image(fetch_image(selected_game),caption=fetch_name(selected_game),width=600)
+        st.markdown("""
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+            <i class="fa fa-thumbs-up" style="font-size:38px;color:white;margin-left:30rem"></i>
+            <i class="fa fa-thumbs-down" style="font-size:38px;color:white;margin-left:3rem"></i>
+        """,unsafe_allow_html=True)
+        html = "<div style=\"clear: both\"><p style=\"margin-left:30rem;color:green;float: left\">{}</p> <p style=\"margin-left:4rem;color:red;float: left\">{}</p></div>".format(str(round(list(review_sentement.loc[review_sentement['appid']==selected_game]['positive'])[0]))+"%",str(round(list(review_sentement.loc[review_sentement['appid']==selected_game]['negative'])[0]))+"%")
+        st.markdown(html,unsafe_allow_html=True)
+    
     # with col01:
-    #     st.markdown("Generating random paragraphs c"*10)
+        # components.html(
+        #     """
+        #     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        #     <style>
+        #         .vl {
+        #             border-left: 1px solid white;
+        #         }
+        #     </style>
+        #     <div class="vl">
+            
+
+        #     <i class="fa fa-thumbs-up" style="font-size:48px;color:white;margin-top:3rem;margin-left:8rem"></i>
+        #     <i class="fa fa-thumbs-down" style="font-size:48px;color:white;margin-top:3rem;margin-left:10rem"></i>
+
+        
+        #     </div>
+        #     """
+        # )
+
+        
 
     components.html(
         """
